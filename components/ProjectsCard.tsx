@@ -14,15 +14,15 @@ export type Project = {
 
 export default function ProjectsCard({ title, techstack, github_url, description }: Project) {
   return (
-    <div className="rounded-sm border border-black/5 bg-white p-4">
+    <div className="w-full">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-bold">{title}</h2>
+        <h3 className="font-bold text-sm">{title}</h3>
         {github_url && (
           <a
             href={github_url}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-neutral-500 hover:text-[#1A1A1A]"
+            className="text-sm text-neutral-500 hover:text-[#1A1A1A] dark:text-neutral-400 dark:hover:text-[#FAFAF9]"
           >
             GitHub
           </a>
@@ -34,7 +34,7 @@ export default function ProjectsCard({ title, techstack, github_url, description
           {techstack.map(({ name, icon: Icon }) => (
             <span
               key={name}
-              className="flex items-center gap-1.5 rounded-full border border-black/10 px-2.5 py-0.5 text-xs text-neutral-500"
+              className="flex items-center gap-1.5 rounded-full border border-black/10 px-2.5 py-0.5 text-xs text-neutral-500 dark:border-white/15 dark:text-neutral-400"
             >
               <Icon width={12} height={12} />
               {name}

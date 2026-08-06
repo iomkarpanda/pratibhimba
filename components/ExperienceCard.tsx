@@ -1,23 +1,22 @@
 import IsWorking from "./IsWorking"
 
 type Experience = {
-    CompanyName:string,
-    timeline:string,
-    Role:string,
-    isworking:boolean,
+    companyName: string,
+    timeline: string,
+    role: string,
+    isWorking: boolean,
 }
 
-export default function ExperienceCard({CompanyName,timeline,Role,isworking}:Experience){
-    return(
-        <div className="p-2 m-2 ">
+export default function ExperienceCard({ companyName, timeline, role, isWorking }: Experience) {
+    return (
+        <div className="mt-4">
             <div className="flex gap-4 items-center">
-                <h2 className="font-medium text-lg">{CompanyName}</h2>
-                {isworking?<IsWorking/>:<></>}
+                <h3 className="font-medium text-sm">{companyName}</h3>
+                {isWorking && <IsWorking />}
             </div>
-            <div className="font-mono text-xs text-neutral-500">{timeline}</div>
+            <div className="font-mono text-xs text-neutral-500 dark:text-neutral-400">{timeline}</div>
 
-            <p className="mt-5 text-sm">{Role}</p>
+            <p className="mt-5 text-sm">{role}</p>
         </div>
     )
 }
-
