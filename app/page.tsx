@@ -40,7 +40,17 @@ export default function Home() {
             <div className="w-full rounded-sm border border-black/5 shadow-sm bg-white p-6 dark:border-white/10 dark:bg-neutral-900">
                 <h2 className="text-lg font-medium">Experience</h2>
                 
-                <ExperienceCard companyName="Nueve IT Solutions" timeline="Feb, 2026 - Jul, 2026" role="Software Developer"/>
+                <ExperienceCard
+                    companyName="Nueve IT Solutions"
+                    timeline="Feb 2026 – Jul 2026"
+                    role="SDE Intern"
+                    details={[
+                        "Developed backend services and REST APIs using Django, Django REST Framework, and FastAPI.",
+                        "Built production-ready RAG applications using LangChain and LangGraph with document ingestion, embeddings, vector search, and retrieval pipelines.",
+                        "Architected and led the internal examination platform for technical hiring, managing architecture design, feature coordination, code reviews, and quality standards. The platform is actively used for company hiring.",
+                        "Integrated LLMs with scalable REST APIs for AI-powered backend systems.",
+                    ]}
+                />
             </div>
 
             {/* Tech Stack */}

@@ -100,7 +100,7 @@ export default function TechStack() {
       {techStack.map(({ category, icons }) => (
         <div key={category} className="mb-4 last:mb-0">
           <p className="text-sm">{category}</p>
-          <div className="mt-2 grid grid-cols-8">
+          <div className="mt-2 flex flex-wrap gap-x-6 gap-y-3 sm:gap-x-8">
             {icons.map(({ name, icon: Icon }) => (
               <span
                 key={name}
