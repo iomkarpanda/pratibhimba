@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "../components/NavBar"
-import {Github,Linkedin,Nextdotjs,Typescript,TailwindCss,React,Nodejs,Python} from "@thesvg/react"
+import {Github,Linkedin,Nextdotjs,Typescript,TailwindCss,Python,Fastapi,Docker,Django,Langchain,Langgraph,Pinecone,Gemini} from "@thesvg/react"
 import ExperienceCard from "@/components/ExperienceCard";
 import TechStack from "@/components/TechStack";
 import ProjectsCard, { type Project } from "@/components/ProjectsCard";
@@ -8,8 +8,40 @@ import OpenToWork from "@/components/OpenToWork";
 import Footer from "@/components/Footer";
 
 const projects: Project[] = [
-  { title: "TraceFlow", techstack: [{ name: "Next.js", icon: Nextdotjs }, { name: "TypeScript", icon: Typescript }, { name: "Tailwind CSS", icon: TailwindCss }], github_url: "", description: "" },
-  { title: "Agency OS", techstack: [{ name: "React", icon: React }, { name: "Node.js", icon: Nodejs }, { name: "Python", icon: Python }], github_url: "", description: "" },
+  {
+    title: "TraceFlow",
+    techstack: [
+      { name: "Next.js", icon: Nextdotjs },
+      { name: "TypeScript", icon: Typescript },
+      { name: "Tailwind CSS", icon: TailwindCss },
+      { name: "FastAPI", icon: Fastapi },
+      { name: "Docker", icon: Docker },
+    ],
+    github_url: "",
+    description: [
+      "Built a full-stack infrastructure management console replacing five CLI tools (redis-cli, mongosh, kafka-console-consumer, rabbitmqadmin, nats) with a unified web interface.",
+      "Developed ~15,500 LOC across 76+ source files using a Python backend and TypeScript frontend.",
+      "Designed BaseService plugin architecture and implemented 198 REST/WebSocket endpoints for Redis, MongoDB, Kafka, RabbitMQ, and NATS.",
+      "Orchestrated Redis 7, RabbitMQ 4, Kafka 7.9, MongoDB 8, NATS 2.10 using Docker Compose with persistent volumes and health checks.",
+    ],
+  },
+  {
+    title: "Video Question Answering using RAG",
+    techstack: [
+      { name: "Django", icon: Django },
+      { name: "LangChain", icon: Langchain },
+      { name: "LangGraph", icon: Langgraph },
+      { name: "Pinecone", icon: Pinecone },
+      { name: "Gemini", icon: Gemini },
+      { name: "Python", icon: Python },
+    ],
+    github_url: "",
+    description: [
+      "Built a Retrieval-Augmented Generation (RAG) system to answer questions over video transcripts using semantic search.",
+      "Developed transcript chunking, embedding, vector search, and retrieval pipelines with Pinecone.",
+      "Built Django REST APIs integrating LLMs with grounded retrieval and timestamp-based evidence generation.",
+    ],
+  },
 ];
 
 export default function Home() {
@@ -27,7 +59,9 @@ export default function Home() {
                 <div className="flex-1 flex flex-col justify-center">
                     <OpenToWork/>
                     <p className="text-2xl font-medium">Omkar Panda</p>
-                    <p className="text-sm mt-2">Full Stack Developer</p>
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                        Full Stack Developer specializing in Django, FastAPI, and Next.js. I build production-ready RAG systems with LangChain and LangGraph, and turn complex infrastructure into simple, unified web interfaces.
+                    </p>
                     <div className="w-15 flex justify-start items-center mt-4 gap-2">
                         <a href="https://github.com/iomkarpanda" className="[&_svg_path]:fill-current"><Github width={15} height={15}/></a>
                         <a href="https://linkedin.com/in/omkarpanda39"><Linkedin width={15} height={15}/></a>
@@ -61,7 +95,7 @@ export default function Home() {
             </div>
 
             {/* Projects */}
-            <div className="w-full rounded-sm border border-black/5 shadow-sm bg-white p-6 dark:border-white/10 dark:bg-neutral-900">
+            <div id="projects" className="w-full scroll-mt-6 rounded-sm border border-black/5 shadow-sm bg-white p-6 dark:border-white/10 dark:bg-neutral-900">
                 <h2 className="text-lg font-medium">Projects</h2>
                 <div className="mt-4 divide-y divide-black/5 dark:divide-white/10">
                     {projects.map((project) => (

@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${plexMono.variable} h-full antialiased`}
+      className={`${plexMono.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
       <head>
