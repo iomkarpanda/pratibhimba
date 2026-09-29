@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "../components/NavBar"
-import {Github,Linkedin,Nextdotjs,Typescript,TailwindCss,Python,Fastapi,Docker,Django,Langchain,Langgraph,Pinecone,Gemini} from "@thesvg/react"
+import {Github,Linkedin,Nextdotjs,Typescript,TailwindCss,Python,Fastapi,Docker,Django,Langchain,Langgraph,Pinecone,Gemini,Sqlite,Textual} from "@thesvg/react"
 import ExperienceCard from "@/components/ExperienceCard";
 import TechStack from "@/components/TechStack";
 import ProjectsCard, { type Project } from "@/components/ProjectsCard";
@@ -42,6 +42,21 @@ const projects: Project[] = [
       "Built Django REST APIs integrating LLMs with grounded retrieval and timestamp-based evidence generation.",
     ],
   },
+  {
+    title: "Terminal API Client",
+    techstack: [
+      { name: "Python", icon: Python },
+      { name: "Textual", icon: Textual },
+      { name: "SQLite", icon: Sqlite },
+    ],
+    github_url: "",
+    description: [
+      "Built a full-featured REST API client that runs entirely in the terminal — a keyboard-driven, lightweight alternative to Postman, using Python and the Textual TUI framework.",
+      "Organized endpoints into collections with full control over params, headers, authorization (Bearer + HTTP Basic), body, cookies, scripts, and tests.",
+      "Developed a six-tab response viewer (Body, Preview, Headers, Cookies, Tests, Timeline) tracking status code, latency, and body size across request history.",
+      "Persisted everything locally in SQLite, with a custom dark theme and color-coded HTTP methods for a polished terminal experience.",
+    ],
+  },
 ];
 
 export default function Home() {
@@ -76,7 +91,7 @@ export default function Home() {
                 
                 <ExperienceCard
                     companyName="Nueve IT Solutions"
-                    timeline="Feb 2026 – Jul 2026"
+                    timeline="Feb 2026 – Sep 2026"
                     role="SDE Intern"
                     details={[
                         "Developed backend services and REST APIs using Django, Django REST Framework, and FastAPI.",
