@@ -13,9 +13,102 @@
   --font-mono: var(--font-ibm-plex-mono);
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-ibm-plex-mono);
+}
+
+.tiptap-editor {
+  min-height: 420px;
+  height: 100%;
+}
+
+.tiptap-editor {
+  min-height: 100%;
+  outline: none;
+  color: inherit;
+  background-color: #eeeeec;
+}
+
+.dark .tiptap-editor {
+  color: #e5e5e5;
+  background-color: #171717;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.tiptap-editor:focus {
+  outline: none;
+}
+
+.tiptap-editor > * + * {
+  margin-top: 0.75rem;
+}
+
+.tiptap-editor p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.tiptap-editor h1,
+.tiptap-editor h2,
+.tiptap-editor h3,
+.tiptap-editor h4 {
+  margin: 0;
+  font-weight: 600;
+  color: inherit;
+}
+
+.tiptap-editor h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.tiptap-editor h2 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.tiptap-editor ul,
+.tiptap-editor ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.tiptap-editor ul {
+  list-style: disc;
+}
+
+.tiptap-editor ol {
+  list-style: decimal;
+}
+
+.tiptap-editor li p {
+  margin: 0;
+}
+
+.tiptap-editor blockquote {
+  display: block;
+  margin: 0;
+  border-left: 3px solid rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.035);
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.dark .tiptap-editor blockquote {
+  border-left-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #d4d4d4;
+}
+
+.tiptap-editor strong {
+  font-weight: 600;
+}
+
+.tiptap-editor a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }

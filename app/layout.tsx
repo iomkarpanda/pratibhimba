@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import BackgroundGrid from "@/components/BackgroundGrid";
-import { ThemeProvider } from "@/components/ThemeProvider";
 
 const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "700"],
@@ -15,24 +15,20 @@ export const metadata: Metadata = {
   description: "Portfolio of Omkar Panda",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const theme = (await cookies()).get("theme")?.value === "dark" ? "dark" : "light";
+
   return (
     <html
       lang="en"
-      className={`${plexMono.variable} h-full scroll-smooth antialiased`}
-      suppressHydrationWarning
+      className={`${plexMono.variable} ${theme === "dark" ? "dark" : ""} h-full scroll-smooth antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.classList.add("dark")}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>
-          <BackgroundGrid>{children}</BackgroundGrid>
-        </ThemeProvider>
+        <BackgroundGrid>{children}</BackgroundGrid>
       </body>
     </html>
   );
