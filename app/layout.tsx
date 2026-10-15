@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { IBM_Plex_Mono } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import BackgroundGrid from "@/components/BackgroundGrid";
 
@@ -28,7 +29,9 @@ export default async function RootLayout({
       className={`${plexMono.variable} ${theme === "dark" ? "dark" : ""} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <BackgroundGrid>{children}</BackgroundGrid>
+        <ClerkProvider>
+          <BackgroundGrid>{children}</BackgroundGrid>
+        </ClerkProvider>
       </body>
     </html>
   );

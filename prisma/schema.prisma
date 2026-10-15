@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Maps to the existing `posts` table created by supabase/schema.sql.
+// Table, RLS policies, and counter functions stay managed by that SQL;
+// Prisma is the query client (no migrations in this repo).
+model Post {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug        String   @unique
+  title       String
+  description String   @default("")
+  contentHtml String   @map("content_html")
+  contentJson Json     @map("content_json")
+  status      String   @default("draft")
+  views       Int      @default(0)
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("posts")
+}

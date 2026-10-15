@@ -112,3 +112,412 @@ body {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
+
+/* Code block and inline code styling for tiptap editor */
+.tiptap-editor .code-block-wrapper {
+  position: relative;
+  margin: 0;
+}
+
+.tiptap-editor .code-block-wrapper pre {
+  padding-top: 2.25rem;
+}
+
+.tiptap-editor .code-language-select {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  z-index: 5;
+  max-width: 9rem;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  color: #57606a;
+  outline: none;
+  cursor: pointer;
+}
+
+.dark .tiptap-editor .code-language-select {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: #161b22;
+  color: #e6edf3;
+}
+
+.tiptap-editor pre {
+  background: #f6f8fa;
+  color: #24292f;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0;
+  white-space: pre;
+  tab-size: 4;
+}
+
+.dark .tiptap-editor pre {
+  background: #0d1117;
+  color: #e6edf3;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Reset: code inside pre is a block, not an inline pill */
+:is(.tiptap-editor, .blog-content) pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  white-space: pre;
+  display: block;
+  overflow-wrap: normal;
+}
+
+/* Inline code only — must not match code inside pre */
+.tiptap-editor :not(pre) > code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace);
+  font-size: 0.85em;
+  white-space: break-spaces;
+  word-break: break-word;
+}
+
+.dark .tiptap-editor :not(pre) > code {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Syntax highlighting (highlight.js / lowlight) — light */
+:is(.tiptap-editor, .blog-content) pre code .hljs-comment,
+:is(.tiptap-editor, .blog-content) pre code .hljs-quote {
+  color: #57606a;
+  font-style: italic;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-keyword,
+:is(.tiptap-editor, .blog-content) pre code .hljs-selector-tag {
+  color: #cf222e;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-string,
+:is(.tiptap-editor, .blog-content) pre code .hljs-regexp,
+:is(.tiptap-editor, .blog-content) pre code .hljs-addition {
+  color: #0a3069;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-title,
+:is(.tiptap-editor, .blog-content) pre code .hljs-title-function_,
+:is(.tiptap-editor, .blog-content) pre code .hljs-section {
+  color: #8250df;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-number,
+:is(.tiptap-editor, .blog-content) pre code .hljs-literal {
+  color: #0550ae;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-attr,
+:is(.tiptap-editor, .blog-content) pre code .hljs-attribute,
+:is(.tiptap-editor, .blog-content) pre code .hljs-variable,
+:is(.tiptap-editor, .blog-content) pre code .hljs-template-variable,
+:is(.tiptap-editor, .blog-content) pre code .hljs-name {
+  color: #116329;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-type,
+:is(.tiptap-editor, .blog-content) pre code .hljs-built_in,
+:is(.tiptap-editor, .blog-content) pre code .hljs-builtin-name {
+  color: #953800;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-operator,
+:is(.tiptap-editor, .blog-content) pre code .hljs-punctuation {
+  color: #24292f;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-deletion {
+  color: #82071e;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-emphasis {
+  font-style: italic;
+}
+
+:is(.tiptap-editor, .blog-content) pre code .hljs-strong {
+  font-weight: 700;
+}
+
+/* Syntax highlighting — dark */
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-comment,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-quote {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-keyword,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-selector-tag {
+  color: #ff7b72;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-string,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-regexp,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-addition {
+  color: #a5d6ff;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-title,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-title-function_,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-section {
+  color: #d2a8ff;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-number,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-literal {
+  color: #79c0ff;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-attr,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-attribute,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-variable,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-template-variable,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-name {
+  color: #7ee787;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-type,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-built_in,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-builtin-name {
+  color: #ffa657;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-operator,
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-punctuation {
+  color: #e6edf3;
+}
+
+.dark :is(.tiptap-editor, .blog-content) pre code .hljs-deletion {
+  color: #ffa198;
+}
+
+/* Themed scrollbars for the blog editor (light + dark) */
+.blog-editor-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+.dark .blog-editor-scroll {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.blog-editor-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blog-editor-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-editor-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.blog-editor-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.32);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark .blog-editor-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark .blog-editor-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.blog-toolbar-scroll {
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+.blog-toolbar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tiptap-editor pre {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
+}
+
+.dark .tiptap-editor pre {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.tiptap-editor pre::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.tiptap-editor pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tiptap-editor pre::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+}
+
+.dark .tiptap-editor pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Rendered MDX blog posts — same look as the editor */
+.blog-content {
+  color: inherit;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.blog-content > * + * {
+  margin-top: 0.75rem;
+}
+
+.blog-content p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  margin: 0;
+  font-weight: 600;
+  color: inherit;
+}
+
+.blog-content h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.blog-content h2 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content strong {
+  font-weight: 600;
+}
+
+.blog-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.blog-content blockquote {
+  display: block;
+  margin: 0;
+  border-left: 3px solid rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.035);
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.dark .blog-content blockquote {
+  border-left-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #d4d4d4;
+}
+
+.blog-content pre {
+  background: #f6f8fa;
+  color: #24292f;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0;
+  white-space: pre;
+  tab-size: 4;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
+}
+
+.dark .blog-content pre {
+  background: #0d1117;
+  color: #e6edf3;
+  border-color: rgba(255, 255, 255, 0.1);
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.blog-content pre::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.blog-content pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-content pre::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+}
+
+.dark .blog-content pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.blog-content :not(pre) > code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace);
+  font-size: 0.85em;
+  white-space: break-spaces;
+  word-break: break-word;
+}
+
+.dark .blog-content :not(pre) > code {
+  background: rgba(255, 255, 255, 0.1);
+}
