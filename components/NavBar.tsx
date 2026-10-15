@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import ThemeToggle from "./ThemeToggle"
-import { SignInButton, Show } from "@clerk/nextjs"
 
 export default function Navbar(){
     return(
@@ -23,9 +22,6 @@ export default function Navbar(){
             <Link href="/contact"> Contact </Link>
             <Link href="/blogs"> Blogs </Link>
             <ThemeToggle/>
-            <Show when="signed-out">
-                <SignInButton />
-            </Show>
         </nav>
     )
 }
