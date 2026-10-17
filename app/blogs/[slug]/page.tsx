@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPrisma } from '@/lib/prisma'
+import { formatDate, readingTimeLabel } from '@/lib/blog'
 import { highlightCodeBlocks } from '@/lib/highlight'
 import { LikeButton, Stat, ViewTracker } from '@/components/BlogEngagement'
 
@@ -53,12 +54,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {post.title}
         </h1>
         <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-          {new Date(post.createdAt).toLocaleDateString()}
+          {formatDate(post.createdAt)}
           {post.description ? ` · ${post.description}` : ''}
         </p>
         <div className="mt-3 flex items-center gap-3">
           <Stat label="views" value={post.views} />
           <LikeButton slug={slug} initialLikes={post.likes} />
+          <span className="text-xs text-neutral-500 dark:text-neutral-400">
+            {readingTimeLabel(post.contentHtml)}
+          </span>
         </div>
         <ViewTracker slug={slug} />
         <article className="blog-content mt-6" dangerouslySetInnerHTML={{ __html: html }} />

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getPrisma } from '@/lib/prisma'
+import { formatDate, readingTimeLabel } from '@/lib/blog'
 
 export const revalidate = 60
 
@@ -23,7 +24,7 @@ export default async function BlogsPage() {
 
   const posts = await prisma.post.findMany({
     where: { status: 'published' },
-    select: { slug: true, title: true, description: true, createdAt: true, views: true, likes: true },
+    select: { slug: true, title: true, description: true, contentHtml: true, createdAt: true, views: true, likes: true },
     orderBy: { createdAt: 'desc' },
   })
 
@@ -52,7 +53,8 @@ export default async function BlogsPage() {
                   </p>
                 )}
                 <p className="mt-2 flex items-center gap-3 text-xs text-neutral-400 dark:text-neutral-500">
-                  <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+                  <span>{formatDate(post.createdAt)}</span>
+                  <span>{readingTimeLabel(post.contentHtml)}</span>
                   <span>{post.views} views</span>
                   <span>{post.likes} likes</span>
                 </p>
